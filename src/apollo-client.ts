@@ -97,8 +97,8 @@ export class ApolloClient {
   async peopleEnrichment(query: PeopleEnrichmentQuery): Promise<any> {
     try {
       const url = `${this.baseUrl}/people/match`;
-      console.log('url', url);
-      console.log('query', query);
+      console.error('url', url);
+      console.error('query', query);
       const response = await this.axiosInstance.post(url, query);
       
       if (response.status === 200) {
@@ -353,9 +353,9 @@ async function main() {
     };
     const peopleEnrichmentResponse = await client.peopleEnrichment(peopleEnrichmentQuery);
     if (peopleEnrichmentResponse) {
-      console.log("People Enrichment Response:", JSON.stringify(peopleEnrichmentResponse, null, 2));
+      console.error("People Enrichment Response:", JSON.stringify(peopleEnrichmentResponse, null, 2));
     } else {
-      console.log("People Enrichment failed.");
+      console.error("People Enrichment failed.");
     }
 
     // Example Organization Enrichment
@@ -364,9 +364,9 @@ async function main() {
     };
     const organizationEnrichmentResponse = await client.organizationEnrichment(organizationEnrichmentQuery);
     if (organizationEnrichmentResponse) {
-      console.log("Organization Enrichment Response:", JSON.stringify(organizationEnrichmentResponse, null, 2));
+      console.error("Organization Enrichment Response:", JSON.stringify(organizationEnrichmentResponse, null, 2));
     } else {
-      console.log("Organization Enrichment failed.");
+      console.error("Organization Enrichment failed.");
     }
 
     // Example People Search
@@ -377,9 +377,9 @@ async function main() {
     };
     const peopleSearchResponse = await client.peopleSearch(peopleSearchQuery);
     if (peopleSearchResponse) {
-      console.log("People Search Response:", JSON.stringify(peopleSearchResponse, null, 2));
+      console.error("People Search Response:", JSON.stringify(peopleSearchResponse, null, 2));
     } else {
-      console.log("People Search failed.");
+      console.error("People Search failed.");
     }
 
     // Example Organization Search
@@ -388,9 +388,9 @@ async function main() {
     };
     const organizationSearchResponse = await client.organizationSearch(organizationSearchQuery);
     if (organizationSearchResponse) {
-      console.log("Organization Search Response:", JSON.stringify(organizationSearchResponse, null, 2));
+      console.error("Organization Search Response:", JSON.stringify(organizationSearchResponse, null, 2));
     } else {
-      console.log("Organization Search failed.");
+      console.error("Organization Search failed.");
     }
 
     // Example Organization Job Postings
@@ -398,9 +398,9 @@ async function main() {
     const organizationId = "5e60b6381c85b4008c83"; // Replace with a valid organization ID
     const organizationJobPostingsResponse = await client.organizationJobPostings(organizationId);
     if (organizationJobPostingsResponse) {
-      console.log("Organization Job Postings Response:", JSON.stringify(organizationJobPostingsResponse, null, 2));
+      console.error("Organization Job Postings Response:", JSON.stringify(organizationJobPostingsResponse, null, 2));
     } else {
-      console.log("Organization Job Postings failed.");
+      console.error("Organization Job Postings failed.");
     }
   } catch (error) {
     console.error("Error:", error);
